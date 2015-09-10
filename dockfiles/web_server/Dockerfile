@@ -31,7 +31,6 @@ RUN curl -SL "http://tengine.taobao.org/download/tengine-${TENGINE_VERSION}.tar.
 
 ENV PATH /usr/local/nginx/sbin:$PATH
 RUN mkdir /usr/local/nginx/certs
-VOLUME ["/usr/local/nginx/conf","/usr/local/nginx/certs"]
 RUN ln -sf /dev/stdout /usr/local/nginx/logs/access.log
 RUN ln -sf /dev/stderr /usr/local/nginx/logs/error.log
 CMD ["nginx", "-g", "daemon off;"]
