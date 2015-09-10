@@ -8,7 +8,7 @@ if [ "$(id -u)" != "0" ]; then
     exit 1
 fi
 bash ./ubuntu_trusty.sh
-apt-get -y purge tcpdump nano ufw openssh-sftp-server
+apt-get -y purge tcpdump nano ufw
 curl -sSL https://get.daocloud.io/docker | sh
 echo "Inpur Daocloud Key:"
 read key
