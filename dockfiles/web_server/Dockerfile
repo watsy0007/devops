@@ -33,6 +33,7 @@ ENV PATH /usr/local/nginx/sbin:$PATH
 RUN mkdir /usr/local/nginx/certs
 RUN mkdir /usr/local/nginx/conf/sites
 ADD nginx.conf /usr/local/nginx/conf/nginx.conf
+VOLUME ["/usr/local/nginx/conf/sites","/usr/local/nginx/certs"]
 RUN ln -sf /dev/stdout /usr/local/nginx/logs/access.log
 RUN ln -sf /dev/stderr /usr/local/nginx/logs/error.log
 CMD ["nginx", "-g", "daemon off;"]
