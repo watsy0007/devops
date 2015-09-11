@@ -37,7 +37,7 @@ fi
 check_disk()
 {
   >$LOCKfile
-  device_list=$(fdisk -l|grep "Disk"|grep "/dev"|awk '{print $2}'|awk -F: '{print $1}'|grep "xv")
+  device_list=$(fdisk -l|grep "Disk"|grep "/dev"|awk '{print $2}'|awk -F: '{print $1}'|grep "vd")
   for i in `echo $device_list`
   do
     device_count=$(fdisk -l $i|grep "$i"|awk '{print $2}'|awk -F: '{print $1}'|wc -l)
@@ -117,15 +117,15 @@ make_dir()
   then
     for j in `seq $count`
     do
-      echo "/data$j" >>$tmp1
-      mkdir /data$j
+      echo "/alidata$j" >>$tmp1
+      mkdir /alidata$j
     done
   else
     for j in `seq $count`
     do
       k=$((now_dir_count+j))
-      echo "/data$k" >>$tmp1
-      mkdir /data$k
+      echo "/alidata$k" >>$tmp1
+      mkdir /alidata$k
     done
   fi
  }
