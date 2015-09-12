@@ -4,5 +4,4 @@ MAINTAINER borisding@huaxing.com
 RUN apt-get update && \
  apt-get install -y nodejs npm nodejs-legacy git
 
-RUN npm install && \
- npm install -g bower grunt-cli
+RUN npm install -g bower grunt-cli yo generator-karma generator-angular
