@@ -6,7 +6,7 @@ ENV RUBY_VERSION 2.2.3
 
 ENV DEBIAN_FRONTEND noninteractive
 RUN apt-get update \
-&& apt-get install -y curl \
+&& apt-get install -y curl nodejs nodejs-legacy npm \
 && useradd --home /home/agent -M agent -K UID_MIN=1000 -K GID_MIN=10000 -s /bin/bash \
 && mkdir /home/agent \
 && chown agent:agent /home/agent && adduser agent sudo \
