@@ -21,4 +21,12 @@ RUN /bin/bash -l -c 'source ~/.rvm/scripts/rvm' \
 && /bin/bash -l -c 'rvm get head' \
 && /bin/bash -l -c 'rvm install $RUBY_VERSION --patch railsexpress' \
 && /bin/bash -l -c 'rvm use $RUBY_VERSION --default' \
+&& /bin/bash -l -c 'gem sources --remove https://rubygems.org/'\
+&& /bin/bash -l -c 'gem sources -a https://ruby.taobao.org/'\
 && /bin/bash -l -c 'gem install bundler --no-doc --no-ri'
+
+USER root
+
+RUN apt-get clean \
+&& apt-get autoclean \
+&& rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
