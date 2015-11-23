@@ -1,7 +1,7 @@
-FROM ubuntu:14.04
+FROM node:4.2.2
+
 MAINTAINER borisding@zhulux.com
 ENV TENGINE_VERSION 2.1.1
-ENV NODE_VERSION 4.2.1
 
 ENV DEBIAN_FRONTEND noninteractive
 RUN apt-get update \
@@ -9,16 +9,6 @@ RUN apt-get update \
 
 RUN gem install sass
 
-ENV HOME /root
-ENV NODE_VER v0.10
-
-RUN git clone https://github.com/creationix/nvm.git $HOME/.nvm
-RUN echo '\n#The Following loads nvm, and install Node.js which version is assigned to $NODE_ENV' >> $HOME/.profile
-RUN echo '. ~/.nvm/nvm.sh' >> $HOME/.profile
-RUN echo 'echo "Installing node@${NODE_VER}, this may take several minutes..."' >> $HOME/.profile
-RUN echo 'nvm install ${NODE_VER}' >> $HOME/.profile
-RUN echo 'nvm alias default ${NODE_VER}' >> $HOME/.profile
-RUN echo 'echo "Install node@${NODE_VER} finished."' >> $HOME/.profile
 RUN npm config set unsafe-perm true
 RUN npm install -g bower grunt-cli yo generator-karma generator-angular grunt-contrib-sass
 
