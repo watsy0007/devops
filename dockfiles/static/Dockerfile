@@ -11,7 +11,9 @@ RUN apt-get update \
 RUN curl https://raw.githubusercontent.com/creationix/nvm/v0.29.0/install.sh | bash
 ENV NVM_DIR /root/.nvm
 RUN gem install sass
-RUN . ~/.nvm/nvm.sh && nvm install $NODE_VERSION && nvm alias default $NODE_VERSION && npm install -g bower grunt-cli yo generator-karma generator-angular grunt-contrib-sass
+RUN . ~/.nvm/nvm.sh && nvm install $NODE_VERSION && nvm alias default $NODE_VERSION
+RUN npm config set unsafe-perm true
+RUN npm install -g bower grunt-cli yo generator-karma generator-angular grunt-contrib-sass
 
 
 RUN curl -SL "http://tengine.taobao.org/download/tengine-${TENGINE_VERSION}.tar.gz" -o tengine.tar.gz \
