@@ -6,7 +6,8 @@ ENV TENGINE_VERSION 2.1.1
 ENV DEBIAN_FRONTEND noninteractive
 RUN apt-get update \
 && apt-get install -y build-essential make autoconf automake curl libpcre3-dev libxml2 python ruby git ruby-dev libpng-dev \
-&& aptget autoclear
+&& apt-get clean \
+&& apt-get autoclean
 
 RUN gem install sass \
 && gem install compass
