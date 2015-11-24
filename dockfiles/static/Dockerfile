@@ -7,8 +7,8 @@ ENV DEBIAN_FRONTEND noninteractive
 RUN apt-get update \
 && apt-get install -y build-essential make autoconf automake curl libpcre3-dev libxml2 python ruby git ruby-dev
 
-RUN gem --no-rdoc --no-ri install sass \
-&& gem --no-rdoc --no-ri install compass
+RUN gem install sass \
+&& gem install compass
 
 RUN npm config set unsafe-perm true
 RUN npm install -g bower grunt-cli yo generator-karma generator-angular grunt-contrib-sass
