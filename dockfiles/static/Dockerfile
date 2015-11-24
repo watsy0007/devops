@@ -32,5 +32,5 @@ ENV PATH /usr/local/nginx/sbin:$PATH
 ADD nginx.conf /usr/local/nginx/conf/nginx.conf
 RUN ln -sf /dev/stdout /usr/local/nginx/logs/access.log
 RUN ln -sf /dev/stderr /usr/local/nginx/logs/error.log
-CMD ["nginx", "-g", "daemon off;"]
+CMD ["nginx"]
 EXPOSE 80
