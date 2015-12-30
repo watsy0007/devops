@@ -36,7 +36,6 @@ RUN buildDeps='gcc libc6-dev make' \
 	&& apt-get purge -y --auto-remove $buildDeps
 
 RUN mkdir /data && chown redis:redis /data
-#  -v /data/redis:/data
 VOLUME /data
 WORKDIR /data
 
