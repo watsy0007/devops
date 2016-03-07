@@ -30,7 +30,7 @@ rm -rf /etc/issue.net
 echo "Change sshd port to: "
 read newport
 sed -i "s/Port 22/Port $newport/g" /etc/ssh/sshd_config
-#sed -i "s/PermitRootLogin yes/PermitRootLogin no/g" /etc/ssh/sshd_config
+sed -i "s/PermitRootLogin yes/PermitRootLogin no/g" /etc/ssh/sshd_config
 sed -i "s/#Banner/Banner/g" /etc/ssh/sshd_config
 useradd -g sudo devops -s /bin/zsh
 mkdir /home/devops
