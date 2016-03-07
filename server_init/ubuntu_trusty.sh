@@ -24,7 +24,7 @@ sudo sed -i "s/$hostn/$newhost/g" /etc/hostname
 echo "Your new hostname is $newhost"
 clear
 echo "System Upgrade Success."
-aptitude install -y git curl software-properties-common zsh libpam-google-authenticator unattended-upgrades
+aptitude install -y git curl software-properties-common zsh unattended-upgrades
 rm -rf /etc/issue.net
 \cp conf/issue.net /etc/issue.net
 echo "Change sshd port to: "
@@ -39,12 +39,6 @@ clear
 echo "Set Devops User Password,Please."
 passwd devops
 
-echo "Firewall configure...."
-ufw disable
-ufw --force reset
-ufw default deny
-ufw allow $newport
-ufw enable
 
 clear
 
