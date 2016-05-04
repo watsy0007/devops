@@ -7,7 +7,8 @@ RUN apt-get update && \
     apt-get install ruby2.3 ruby2.3-dev \
     postgresql-client graphicsmagick imagemagick ghostscript libgs-dev -y && \
     rm -rf /var/lib/apt/lists/* && \
-    ln -s /usr/bin/ruby2.3 /usr/bin/ruby && \
+    
+RUN ln -s /usr/bin/ruby2.3 /usr/bin/ruby && \
     ln -s /usr/bin/gem2.3 /usr/bin/gem
     
 RUN gem install bundler --version "$BUNDLER_VERSION" && \
