@@ -7,7 +7,9 @@ ENV LANG en_US.UTF-8
 ENV LC_ALL en_US.UTF-8
 ENV TZ Asia/Shanghai
 
-RUN dpkg-reconfigure -f noninteractive tzdata  && \
+RUN locale-gen $LANGUAGE && \
+    dpkg-reconfigure locales && \
+    dpkg-reconfigure -f noninteractive tzdata  && \
     ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 
 RUN apt-get update && apt-get upgrade  -y && apt-get clean && \
