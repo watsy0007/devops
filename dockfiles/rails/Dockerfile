@@ -5,10 +5,10 @@ ENV RAILS_VERSION 4.2.6
 
 RUN apt-get update && \
     apt-get install ruby2.3 ruby2.3-dev \
-    postgresql-client graphicsmagick imagemagick ghostscript libgs-dev ruby-switch -y && \
+    postgresql-client graphicsmagick imagemagick ghostscript libgs-dev -y && \
     rm -rf /var/lib/apt/lists/* && \
     rm /usr/bin/ruby && ln -s /usr/bin/ruby2.3 /usr/bin/ruby && \
-	rm -fr /usr/bin/gem && ln -s /usr/bin/gem2.3 /usr/bin/gem
+    rm -fr /usr/bin/gem && ln -s /usr/bin/gem2.3 /usr/bin/gem
     
 RUN gem install bundler --version "$BUNDLER_VERSION" && \
     gem install rails --version "$RAILS_VERSION" && \
