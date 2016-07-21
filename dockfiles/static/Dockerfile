@@ -28,7 +28,6 @@ RUN curl -SL "http://tengine.taobao.org/download/tengine-${TENGINE_VERSION}.tar.
   --prefix=/usr/local/nginx \
   --without-dso \
   --with-pcre \
-  --without-http_proxy_module \
 && make -j"$(nproc)" \
 && make install \
 && cd / \
