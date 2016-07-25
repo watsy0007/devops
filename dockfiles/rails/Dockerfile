@@ -4,7 +4,7 @@ ENV BUNDLER_VERSION 1.12.5
 ENV RAILS_VERSION 5.0.0
 
 RUN apt-get update && \
-    apt-get install ruby2.3 ruby2.3-dev \
+    apt-get install ruby2.3 ruby2.3-dev git \
     postgresql-client graphicsmagick imagemagick ghostscript libgs-dev -y && \
     rm -rf /var/lib/apt/lists/*
 
