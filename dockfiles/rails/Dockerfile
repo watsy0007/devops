@@ -1,6 +1,6 @@
-FROM daocloud.io/zhulux/base_image:latest
+FROM daocloud.io/zhulux/base_image:base_v1.0
 MAINTAINER borisding@zhulux.com
-ENV BUNDLER_VERSION 1.12.1
+ENV BUNDLER_VERSION 1.12.5
 ENV RAILS_VERSION 4.2.6
 
 RUN apt-get update && \
