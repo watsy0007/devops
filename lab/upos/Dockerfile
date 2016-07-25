@@ -1,5 +1,6 @@
+#NOTE: As base os and base packages
 FROM ubuntu:16.04
-MAINTAINER borisding@zhulux.com
+MAINTAINER ruijiancao@zhulux.com
 
 ENV DEBIAN_FRONTEND noninteractive
 ENV LANGUAGE en_US.UTF-8
@@ -12,16 +13,18 @@ RUN locale-gen $LANGUAGE && \
     dpkg-reconfigure -f noninteractive tzdata  && \
     ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 
-RUN apt-get update && apt-get upgrade -y && \
-    apt-get install supervisor rsyslog -y && \
-    apt-get clean && \
+RUN rm  -rf /etc/apt/sources.list /etc/apt/sources.list.d
+COPY conf/apt-sources.list /etc/apt/sources.list
+
+RUN apt-get update && \
+    apt-get upgrade -y && \
+    apt-get -y install supervisor rsyslog 
+
+RUN apt-get clean && \
     rm -rf /usr/share/doc/* && \
     rm -rf /usr/share/locale/* && \
     rm -rf /usr/share/man/* && \
     rm -rf /var/cache/debconf/*-old && \
     rm -rf /var/lib/apt/lists/*
 
-RUN mv /etc/rsyslog.d/50-default.conf /etc/rsyslog.d/50-default.conf.bak
-COPY conf/forward_log.conf /etc/rsyslog.d/forward_log.conf
-
-CMD ['bash']
+CMD ["bash"]
