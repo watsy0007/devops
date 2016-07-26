@@ -10,6 +10,6 @@ COPY dot.gemrc /root/.gemrc
 COPY script /script
 RUN chmod +x /script/* 
 RUN /script/cgem taobao
-RUN gem install pry
+RUN gem install byebug pry
 
 CMD [ "pry" ]
