@@ -13,7 +13,7 @@ RUN locale-gen $LANGUAGE && \
     ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 
 RUN apt-get update && apt-get upgrade -y && \
-    apt-get install supervisor rsyslog -y && \
+    apt-get install git supervisor rsyslog -y && \
     apt-get clean && \
     rm -rf /usr/share/doc/* && \
     rm -rf /usr/share/locale/* && \

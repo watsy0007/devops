@@ -1,9 +1,5 @@
 FROM daocloud.io/zhulux/rails:rails_v5.0.0
 
-RUN apt-get update && \
-    apt-get upgrade -y && \
-    apt-get install postgresql-client git libpq-dev libmysqlclient-dev -y
-
 RUN mkdir -p /tmp/bundler
 WORKDIR /tmp/bundler
 COPY Gemfile /tmp/bundler

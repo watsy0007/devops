@@ -5,7 +5,7 @@ ENV RAILS_VERSION 5.0.0
 
 RUN apt-get update && \
     apt-get install ruby2.3 ruby2.3-dev \
-    postgresql-client graphicsmagick imagemagick ghostscript libgs-dev -y && \
+    postgresql-client graphicsmagick imagemagick ghostscript libpq-dev libmysqlclient-dev libgs-dev -y && \
     rm -rf /var/lib/apt/lists/*
 
 RUN gem install bundler --version "$BUNDLER_VERSION" && \
