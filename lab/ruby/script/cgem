@@ -1,0 +1,45 @@
+#!/usr/bin/env ruby
+# inspired by cnpm, to solve gem source for chinese rubists!
+# run: ruby -e "$(curl -fsSL http://somesite.com/path/to/cgem)"
+
+require 'yaml'
+
+sources = {
+  rubygems: 'https://rubygems.org',
+  rchina: 'https://gems.ruby-china.org',
+  taobao: 'https://ruby.taobao.org'
+}
+
+dot_gemrc = File.expand_path('~/.gemrc')
+
+settings = {}
+if File.exists?(dot_gemrc)
+  settings = YAML.load(File.read(dot_gemrc))
+end
+
+source_key = ARGV[0].to_s.downcase.strip.to_sym
+
+echo_help = !sources.keys.include?(source_key)
+if echo_help
+  puts "current sources: #{settings[:sources]} "
+  puts `bundle config mirror.https://rubygems.org`
+  abort "run: cgem #{sources.keys.map(&:to_s)}"
+end
+
+source_with_slash = sources[source_key] + "/"
+settings[:sources] = [ source_with_slash ]
+
+File.write(dot_gemrc, settings.to_yaml)
+puts "==updated #{source_with_slash} into #{dot_gemrc} as default gem source!"
+
+begin
+  gem 'bundler'
+rescue LoadError => e
+  puts "==loading bundler"
+  puts `gem install bundler -V -s #{sources[source_key]}`
+end
+
+puts `bundle config mirror.https://rubygems.org #{sources[source_key]}`
+puts `bundle config mirror.https://rubygems.org`
+
+puts "==congratulations! Happy to use #{sources[source_key]} in china!"

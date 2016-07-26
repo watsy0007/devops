@@ -18,13 +18,16 @@ COPY conf/apt-sources.list /etc/apt/sources.list
 
 RUN apt-get update && \
     apt-get upgrade -y && \
-    apt-get -y install supervisor rsyslog 
+    apt-get install -y supervisor rsyslog
+
+# dev helper
+RUN apt-get install -y curl vim
 
 RUN apt-get clean && \
     rm -rf /usr/share/doc/* && \
-    rm -rf /usr/share/locale/* && \
     rm -rf /usr/share/man/* && \
-    rm -rf /var/cache/debconf/*-old && \
-    rm -rf /var/lib/apt/lists/*
+    rm -rf /var/cache/debconf/*-old 
+    #rm -rf /usr/share/locale/* && \
+    #rm -rf /var/lib/apt/lists/*
 
 CMD ["bash"]
