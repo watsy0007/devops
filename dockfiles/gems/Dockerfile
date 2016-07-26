@@ -1,5 +1,10 @@
 FROM daocloud.io/zhulux/rails:rails_v4.2.6
 
+RUN apt-get update && apt-get upgrade -y && \
+    apt-get install git -y && \
+    apt-get clean && \
+    rm -rf /var/lib/apt/lists/*
+
 RUN mkdir -p /tmp/bundler
 WORKDIR /tmp/bundler
 COPY Gemfile /tmp/bundler
