@@ -15,7 +15,7 @@ gem 'parser', '2.3.1.0'
 gem 'aasm', '~> 4.10'
 gem 'bcrypt', '~> 3.1.11'
 gem 'cancancan', '~> 1.14.0'
-gem 'paranoia', '~> 2.1.5' # 软删除
+gem 'paranoia', branch: 'rails5'
 
 # Use Puma as the app server
 gem 'puma', '~> 3.0'
@@ -42,18 +42,18 @@ gem 'acts_as_list'
 gem 'ruby-pinyin', '~> 0.5.0'
 gem 'mini_magick', '~> 4.5.1'
 gem 'has_scope', '~> 0.7.0'
-gem 'paper_trail', '~> 5.0.1'
+gem 'paper_trail', '~> 5.2.0'
 gem 'json-schema', '~> 2.6.2'
-gem 'kaminari', '~> 0.16.3'
+gem 'kaminari', '~> 0.17.0
 gem 'letter_avatar'
 
 gem 'redis', '~> 3.3.0'
-gem 'redis-rails', '~> 4.0.0'
+gem 'redis-rails', '~> 5.0.1'
 
 gem 'redis-namespace' # removed from sidekiq dependence, we still need it
 gem 'wisper', '~> 2.0.0.rc1'
 gem 'wisper-sidekiq'
-gem 'sidekiq', '~> 4.1.2'
+gem 'sidekiq', branch: 'rails5'
 gem 'sidetiq'
 
 gem 'carrierwave', '~> 0.11'
@@ -69,3 +69,6 @@ gem 'jpush', '~> 4.0.2'
 gem 'private_pub' # faye
 gem 'cloopen', :git => 'git://github.com/xiewenwei/cloopen.git' # sms
 gem 'wechat'
+
+gem 'httparty'
+gem 'unscoped_associations' # support unscoped for association
