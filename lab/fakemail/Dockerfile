@@ -1,12 +1,15 @@
-# ref https://github.com/schickling/dockerfiles/tree/master/mailcatcher
+#ref https://github.com/schickling/dockerfiles/tree/master/mailcatcher
 #FROM lab/ruby
-FROM zhulux/ruby:2.3.0
+FROM daocloud.io/ruby:2.3.0
 MAINTAINER ruijiancao@zhulux.com
+
+#RUN rm  -rf /etc/apt/sources.list /etc/apt/sources.list.d
+#COPY conf/apt-sources.list /etc/apt/sources.list
 
 ADD install.sh install.sh
 RUN chmod +x install.sh
 RUN ./install.sh  
-#&& rm install.sh
+RUN rm install.sh
 
 # smtp port
 EXPOSE 1025

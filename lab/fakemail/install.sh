@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
-
 set -e
 
-apt-get update && apt-get install -y build-essential libsqlite3-dev sqlite3
+apt-get update -y 
+apt-get install --force-yes -y build-essential libsqlite3-dev sqlite3
 
 gem install mailcatcher --no-ri --no-rdoc
 
