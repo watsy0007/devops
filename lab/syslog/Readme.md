@@ -11,9 +11,11 @@ find client, server, and logstash containerid
   docker exec -ti client_id bash
 
   # should go server: tail -f /var/log/syslog
+
   logger -p local0.info  say hi from local0
 
   # should go logstash by: docker logs -f logstash_id 
+
   logger -p local1.info  say hi from local1
 
 
