@@ -5,7 +5,8 @@ MAINTAINER ruijiancao@zhulux.com
 
 ADD install.sh install.sh
 RUN chmod +x install.sh
-RUN ./install.sh && rm install.sh
+RUN ./install.sh  
+#&& rm install.sh
 
 # smtp port
 EXPOSE 1025
