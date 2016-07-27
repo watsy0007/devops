@@ -1,5 +1,6 @@
 # ref https://github.com/schickling/dockerfiles/tree/master/mailcatcher
-FROM lab/ruby
+#FROM lab/ruby
+FROM zhulux/ruby:2.3.0
 MAINTAINER ruijiancao@zhulux.com
 
 ADD install.sh install.sh
