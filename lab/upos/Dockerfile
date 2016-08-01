@@ -16,12 +16,10 @@ RUN locale-gen $LANGUAGE && \
 RUN rm  -rf /etc/apt/sources.list /etc/apt/sources.list.d
 COPY conf/apt-sources.list /etc/apt/sources.list
 
-RUN apt-get update && \
-    apt-get upgrade -y && \
-    apt-get install -y supervisor rsyslog
+RUN apt-get update && apt-get install -y rsyslog 
 
 # dev helper
-RUN apt-get install -y curl vim
+RUN apt-get install -y curl vim-tiny
 
 RUN apt-get clean && \
     rm -rf /usr/share/doc/* && \
