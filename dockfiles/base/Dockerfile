@@ -13,9 +13,9 @@ RUN locale-gen $LANGUAGE && \
     ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 
 ADD bootstrap /bootstrap
-RUN apt-get update && apt-get install -y rsyslog 
 
-RUN apt-get clean && \
+RUN apt-get update && apt-get install -y rsyslog && \ 
+    apt-get clean && \
     rm -rf /usr/share/doc/* && \
     rm -rf /usr/share/locale/* && \
     rm -rf /usr/share/man/* && \
