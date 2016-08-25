@@ -8,6 +8,6 @@ RUN apt-get update && \
     rm -rf /var/lib/apt/lists/*
 
 RUN gem install bundler --version "$BUNDLER_VERSION" && \
-    gem install rails --version "$RAILS_VERSION" && \
+    gem install rails --version "$RAILS_VERSION"
 
 CMD [ "pry" ]
