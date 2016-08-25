@@ -3,8 +3,6 @@ MAINTAINER borisding@zhulux.com
 ENV BUNDLER_VERSION 1.12.5
 ENV RAILS_VERSION 4.2.7.1
 
-ADD bootstrap /bootstrap
-RUN chmod -R +x bootstrap && ./bootstrap/speedup-apt.sh
 RUN apt-get update && \
     apt-get install postgresql-client graphicsmagick imagemagick rsyslog ghostscript libgs-dev -y && \
     rm -rf /var/lib/apt/lists/*
