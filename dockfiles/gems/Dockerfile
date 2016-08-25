@@ -1,4 +1,4 @@
-FROM daocloud.io/zhulux/rails:rails_v4.2.6
+FROM rails:4.2.7.1
 
 RUN apt-get update && apt-get upgrade -y && \
     apt-get install git -y && \
