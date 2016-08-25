@@ -1,0 +1,7 @@
+# Ref http://wiki.ubuntu.org.cn/%E6%A8%A1%E6%9D%BF:16.04source
+# favor http://mirrors.aliyun.com/ubuntu/
+
+deb http://mirrors.aliyun.com/debian/ jessie main non-free contrib
+deb http://mirrors.aliyun.com/debian/ jessie-proposed-updates main non-free contrib
+deb-src http://mirrors.aliyun.com/debian/ jessie main non-free contrib
+deb-src http://mirrors.aliyun.com/debian/ jessie-proposed-updates main non-free contrib
