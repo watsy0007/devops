@@ -1,4 +1,4 @@
-FROM daocloud.io/zhulux/rails:4.2.7
+FROM daocloud.io/zhulux/rails_v4.2.7.1
 
 RUN mkdir -p /tmp/bundler
 WORKDIR /tmp/bundler
