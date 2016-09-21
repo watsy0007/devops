@@ -6,6 +6,10 @@ RUN apt-get update && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
 
+WORKDIR /tmp
+COPY Gemfile /tmp
+RUN bundle install
+
 EXPOSE 80
 
 CMD ["bash"]
