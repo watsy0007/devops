@@ -1,2 +1,2 @@
-FROM docker pull nginx:1.11.4-alpine
+FROM docker pull alpine-nginx:mainline
 COPY nginx.conf /etc/nginx/nginx.conf
