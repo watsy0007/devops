@@ -1,2 +1,2 @@
-FROM daocloud.io/zhulux/codepush_proxy:master-ca094ad
+FROM daocloud.io/zhulux/ngx_cache_purge:master-897ce3e
 COPY nginx.conf /etc/nginx/nginx.conf
