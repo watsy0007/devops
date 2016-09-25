@@ -1,2 +1,2 @@
-FROM docker pull daocloud.io/zhulux/ngx_cache_purge:master-5d1d8e2
+FROM docker pull nginx:1.11.4-alpine
 COPY nginx.conf /etc/nginx/nginx.conf
